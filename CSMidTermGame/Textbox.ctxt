@@ -1,5 +1,7 @@
 #BlueJ class context
 comment0.target=Textbox
-comment1.params=text\ size
-comment1.target=Textbox(java.lang.String,\ int)
-numComments=2
+comment1.params=text\ size\ onOff
+comment1.target=Textbox(java.lang.String,\ int,\ boolean)
+comment2.params=score
+comment2.target=void\ setScore(int)
+numComments=3

@@ -12,17 +12,17 @@ public class MyWorld extends World
     int stage = 0;
     int frameCounter = 0;
     int lastPrefab = -1;
-
+    int score;
+    Player player = new Player(0.3, 4, 6.5);
+    Textbox scoreUI = new Textbox("Score: ", 75, true);
+    
     public MyWorld(String selectedCharacter)
     {
         super(1550, 1080, 1);
 
-        Player player = new Player(0.3, 4, 6.5);
         player.setCharacter(selectedCharacter);
         addObject(player, 100, 700);
-
-        addObject(new Score("Score: 0", 75), 750, 150);
-
+        addObject(scoreUI, 750, 200);
         loadPrefabs();
         PermanentLeft();
         PermanentRight();
@@ -32,6 +32,8 @@ public class MyWorld extends World
     public void act()
     {
         updateBackground();
+        this.score = player.getScore();
+        scoreUI.setScore(score);
     }
 
     public void loadPrefabs()

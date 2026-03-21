@@ -37,7 +37,6 @@ public class Player extends Actor
             playerPhysics();
             checkForCollision();
             deathCheck();
-            showScore();
         }
     }
 
@@ -80,6 +79,7 @@ public class Player extends Actor
         if (isAtEdge())
         {
             playerSpeed *= -1;
+            
             addScore();
             ((MyWorld)getWorld()).spawnRandomMiddle();
             System.out.println("Switched Middle");
@@ -106,6 +106,10 @@ public class Player extends Actor
     public void reset()
     {
         setLocation(startX, startY);
+        if (playerSpeed < 0)
+        {
+            playerSpeed *= -1;
+        }
         score = 0;
         ((MyWorld)getWorld()).spawnRandomMiddle();
     }
@@ -115,9 +119,10 @@ public class Player extends Actor
         score++;
     }
 
-    public void showScore()
+    public int getScore()
     {
-        getWorld().showText("Score: " + score, 750, 100);
+        System.out.println(score);
+        return score;
     }
 
     public void setCharacter(String imageName)

@@ -4,7 +4,8 @@ public class StartScreen extends World
 {
     private Player previewPlayer;
     private int selectedIndex = 0;
-
+    private Textbox logoText = new Textbox("Jump Man", 100, false);
+    
     private String[] spriteArray = {
         "clockplayer.png",
         "eraserplayer.png",
@@ -20,12 +21,13 @@ public class StartScreen extends World
         addObject(previewPlayer, 775, 400);
 
         previewPlayer.setCharacter(spriteArray[selectedIndex]);
-
+        addObject(logoText, 750, 200);
         addObject(new CharacterSwitchButton("<", 80, 40, false, this), 650, 400);
         addObject(new CharacterSwitchButton(">", 80, 40, true, this), 900, 400);
 
         addObject(new WorldButton("Play", 150, 50, 25, this), 775, 550);
         getBackground().setColor(new Color(255, 209, 220));
+        getBackground().fill();
     }
 
     public void switchCharacter(boolean right)
