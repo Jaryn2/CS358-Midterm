@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=StartScreen
+comment1.params=
+comment1.target=StartScreen()
+comment2.params=right
+comment2.target=void\ switchCharacter(boolean)
+comment3.params=
+comment3.target=java.lang.String\ getSelectedCharacter()
+numComments=4

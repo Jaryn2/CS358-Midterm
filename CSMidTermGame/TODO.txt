@@ -1,0 +1,12 @@
+TODO:
+
+High Score
+Start Screen
+Death Screen
+Character selection on the start screen
+Add new sprites.(Spikes for screen, new blocks, new character models 3-4 if you want alex however many is fine)
+Add spikes.
+
+
+
+

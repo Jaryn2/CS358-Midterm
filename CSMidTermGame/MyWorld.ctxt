@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=MyWorld
+comment1.params=selectedCharacter
+comment1.target=MyWorld(java.lang.String)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ loadPrefabs()
+comment4.params=
+comment4.target=void\ PermanentLeft()
+comment5.params=
+comment5.target=void\ PermanentRight()
+comment6.params=layout\ startX\ startY
+comment6.target=void\ spawnPrefab(int[][],\ int,\ int)
+comment7.params=
+comment7.target=void\ clearMiddle()
+comment8.params=
+comment8.target=void\ updateBackground()
+comment9.params=
+comment9.target=void\ spawnRandomMiddle()
+numComments=10

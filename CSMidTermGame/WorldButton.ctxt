@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=WorldButton
+comment1.params=text\ width\ height\ fontSize\ startScreen
+comment1.target=WorldButton(java.lang.String,\ int,\ int,\ int,\ StartScreen)
+comment2.params=
+comment2.target=void\ act()
+numComments=3

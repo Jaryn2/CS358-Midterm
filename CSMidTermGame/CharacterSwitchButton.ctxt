@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=CharacterSwitchButton
+comment1.params=text\ width\ height\ side\ startScreen
+comment1.target=CharacterSwitchButton(java.lang.String,\ int,\ int,\ boolean,\ StartScreen)
+comment2.params=
+comment2.target=void\ act()
+numComments=3
