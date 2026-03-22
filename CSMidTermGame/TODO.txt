@@ -2,10 +2,10 @@ TODO:
 
 High Score - Done
 Start Screen - Done
-Death Screen
+Death Screen - Done
 Character selection on the start screen - Done
-Add new sprites.(Spikes for screen, new blocks, new character models 3-4 if you want alex however many is fine) - Halfway done characters are done need to add spikes and new blocks
-Add spikes. - Will do this today or tomorrow;
+Add new sprites. - Done
+Add spikes. - Done
 
 
 

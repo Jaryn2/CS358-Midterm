@@ -16,7 +16,7 @@ public class Player extends Actor
     private int totalFrames = 2;
     private int animationDelay = 10;
     private int animationCounter = 0;
-
+    private int particleTimer = 0;
     public Player(double gravity, int speed, double jumpForce)
     {
         this.gravity = gravity;
@@ -37,6 +37,7 @@ public class Player extends Actor
             playerPhysics();
             checkForCollision();
             deathCheck();
+            spawnRunParticles();
         }
     }
 
@@ -165,7 +166,7 @@ public class Player extends Actor
             updateAnimationFrame();
         }
     }
-
+    
     public void updateAnimationFrame()
     {
         GreenfootImage spriteSheet = new GreenfootImage(currentCharacter);
@@ -178,5 +179,16 @@ public class Player extends Actor
         singleFrame.drawImage(spriteSheet, 0, -currentFrame * frameHeight);
 
         setImage(singleFrame);
+    }
+    
+    public void spawnRunParticles()
+    {
+        particleTimer++;
+    
+        if (particleTimer >= 4)
+        {
+            getWorld().addObject(new DustParticle(), getX(), getY() + getImage().getHeight() / 2);
+            particleTimer = 0;
+        }
     }
 }
