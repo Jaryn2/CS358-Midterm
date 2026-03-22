@@ -4,12 +4,14 @@ public class CharacterSwitchButton extends Actor
 {
     private boolean side;
     private StartScreen startScreen;
+    private DeathScreen deathScreen;
 
-    public CharacterSwitchButton(String text, int width, int height, boolean side, StartScreen startScreen)
+    public CharacterSwitchButton(String text, int width, int height, boolean side, StartScreen startScreen, DeathScreen deathScreen)
     {
         this.side = side;
         this.startScreen = startScreen;
-
+        this.deathScreen = deathScreen;
+        
         int arc = 20;
         GreenfootImage img = new GreenfootImage(width, height);
 
@@ -35,7 +37,9 @@ public class CharacterSwitchButton extends Actor
     {
         if (Greenfoot.mouseClicked(this))
         {
-            startScreen.switchCharacter(side);
+            if (startScreen != null) startScreen.switchCharacter(side);
+            if (deathScreen != null) deathScreen.switchCharacter(side);
+
         }
     }
 }

@@ -13,13 +13,13 @@ public class MyWorld extends World
     int frameCounter = 0;
     int lastPrefab = -1;
     int score;
-    Player player = new Player(0.3, 4, 6.5);
+    Player player = new Player(0.5, 4, 10);
     Textbox scoreUI = new Textbox("Score: ", 75, true);
     
     public MyWorld(String selectedCharacter)
     {
         super(1550, 1080, 1);
-
+        background();
         player.setCharacter(selectedCharacter);
         addObject(player, 100, 700);
         addObject(scoreUI, 750, 200);
@@ -31,7 +31,6 @@ public class MyWorld extends World
 
     public void act()
     {
-        updateBackground();
         this.score = player.getScore();
         scoreUI.setScore(score);
     }
@@ -41,7 +40,7 @@ public class MyWorld extends World
         prefabs.add(new int[][]{
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,1,1,0,0,1,1,0,0,0,0,0},
+            {0,0,0,0,1,1,2,2,1,1,0,0,0,0,0},
             {0,1,1,0,0,0,0,0,0,0,0,0,1,1,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
         });
@@ -51,12 +50,12 @@ public class MyWorld extends World
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,1,1,0,0,0,0,0,0,0,0,0,1,1,0},
-            {0,0,0,0,1,1,0,0,1,1,0,0,0,0,0}
+            {0,0,0,0,1,1,2,2,1,1,0,0,0,0,0}
         });
 
         prefabs.add(new int[][]{
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,2,0,0},
             {0,1,1,1,1,0,1,1,1,0,1,1,1,1,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
@@ -66,19 +65,19 @@ public class MyWorld extends World
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,2,0,0,0,0,0,0,0,0,0,0,0},
             {0,1,1,1,1,0,1,1,1,0,1,1,1,1,0}
         });
 
         prefabs.add(new int[][]{
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,2,0,0,0,0,0,0,0},
             {0,1,1,1,1,0,1,1,1,0,1,1,1,1,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
         });
     }
-
+    
     public void PermanentLeft()
     {
         for (int i = 0; i < 8; i++)
@@ -108,6 +107,11 @@ public class MyWorld extends World
                     int x = startX + (col * tileSize);
                     int y = startY + (row * tileSize);
                     addObject(new MiddleBlock(), x, y);
+                } else if (layout[row][col] == 2)
+                {
+                    int x = startX + (col * tileSize);
+                    int y = startY + (row * tileSize);
+                    addObject(new Spike(), x, y);
                 }
             }
         }
@@ -116,73 +120,7 @@ public class MyWorld extends World
     public void clearMiddle()
     {
         removeObjects(getObjects(MiddleBlock.class));
-    }
-
-    public void updateBackground()
-    {
-        frameCounter++;
-        if (frameCounter < 3) return;
-        frameCounter = 0;
-
-        int speed = 1;
-
-        if (stage == 0)
-        {
-            g += speed;
-            if (g >= 255)
-            {
-                g = 255;
-                stage = 1;
-            }
-        }
-        else if (stage == 1)
-        {
-            r -= speed;
-            if (r <= 0)
-            {
-                r = 0;
-                stage = 2;
-            }
-        }
-        else if (stage == 2)
-        {
-            b += speed;
-            if (b >= 255)
-            {
-                b = 255;
-                stage = 3;
-            }
-        }
-        else if (stage == 3)
-        {
-            g -= speed;
-            if (g <= 0)
-            {
-                g = 0;
-                stage = 4;
-            }
-        }
-        else if (stage == 4)
-        {
-            r += speed;
-            if (r >= 255)
-            {
-                r = 255;
-                stage = 5;
-            }
-        }
-        else if (stage == 5)
-        {
-            b -= speed;
-            if (b <= 0)
-            {
-                b = 0;
-                stage = 0;
-            }
-        }
-
-        getBackground().setColor(new Color(r, g, b));
-        getBackground().fill();
+        removeObjects(getObjects(Spike.class));
     }
 
     public void spawnRandomMiddle()
@@ -200,5 +138,12 @@ public class MyWorld extends World
 
         int[][] chosenPrefab = prefabs.get(randomIndex);
         spawnPrefab(chosenPrefab, 425, 650);
+    }
+    public void background()
+    {
+        setBackground("background.png");
+        GreenfootImage bg = getBackground();
+        bg.scale(1565, 1080);
+        setBackground(bg);
     }
 }

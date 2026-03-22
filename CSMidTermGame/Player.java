@@ -101,10 +101,20 @@ public class Player extends Actor
         {
             reset();
         }
+        Actor spikeCheck = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 0, Spike.class);
+        Actor blockInFrontCheckMiddle = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, MiddleBlock.class);
+        Actor blockInFrontCheckPerm = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, Block.class);
+        
+
+        if (spikeCheck != null || blockInFrontCheckMiddle != null || blockInFrontCheckPerm != null)
+        {
+            reset();
+        }
     }
 
     public void reset()
     {
+        Greenfoot.setWorld(new DeathScreen());
         setLocation(startX, startY);
         if (playerSpeed < 0)
         {

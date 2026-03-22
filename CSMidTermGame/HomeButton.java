@@ -1,14 +1,12 @@
 import greenfoot.*;
 
-public class WorldButton extends Actor
+public class HomeButton extends Actor
 {
     private StartScreen startScreen;
     private DeathScreen deathScreen;
 
-    public WorldButton(String text, int width, int height, int fontSize, StartScreen startScreen, DeathScreen deathScreen)
+    public HomeButton(int width, int height, int fontSize)
     {
-        this.startScreen = startScreen;
-        this.deathScreen = deathScreen;
 
         int arc = 20;
         GreenfootImage img = new GreenfootImage(width, height);
@@ -23,7 +21,7 @@ public class WorldButton extends Actor
         img.fillOval(0, height - arc, arc, arc);
         img.fillOval(width - arc, height - arc, arc, arc);
 
-        GreenfootImage textImage = new GreenfootImage(text, fontSize, Color.BLACK, null);
+        GreenfootImage textImage = new GreenfootImage("Home", fontSize, Color.BLACK, null);
         int x = (width - textImage.getWidth()) / 2;
         int y = (height - textImage.getHeight()) / 2;
         img.drawImage(textImage, x, y);
@@ -35,13 +33,7 @@ public class WorldButton extends Actor
     {
         if (Greenfoot.mouseClicked(this))
         {
-            if (startScreen != null)
-            {
-                Greenfoot.setWorld(new MyWorld(startScreen.getSelectedCharacter()));
-            }else if (deathScreen != null)
-            {
-                 Greenfoot.setWorld(new MyWorld(deathScreen.getSelectedCharacter()));
-            }
+                 Greenfoot.setWorld(new StartScreen());
         }
     }
 }
