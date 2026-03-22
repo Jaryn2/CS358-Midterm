@@ -17,6 +17,8 @@ public class Player extends Actor
     private int animationDelay = 10;
     private int animationCounter = 0;
     private int particleTimer = 0;
+    private boolean waiting = false;
+    private int waitTimer = 0;
     public Player(double gravity, int speed, double jumpForce)
     {
         this.gravity = gravity;
@@ -28,8 +30,21 @@ public class Player extends Actor
 
     public void act()
     {
+        if (waiting)
+        {
+            waitTimer--;
+    
+            if (waitTimer <= 0)
+            {
+                waiting = false;
+                Greenfoot.setWorld(new DeathScreen());
+            }
+    
+            return;
+        }
+    
         animateCharacter();
-
+    
         if (getWorld() instanceof MyWorld)
         {
             playerMovement();
@@ -106,7 +121,7 @@ public class Player extends Actor
         Actor blockInFrontCheckMiddle = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, MiddleBlock.class);
         Actor blockInFrontCheckPerm = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, Block.class);
         
-
+        
         if (spikeCheck != null || blockInFrontCheckMiddle != null || blockInFrontCheckPerm != null)
         {
             reset();
@@ -115,14 +130,18 @@ public class Player extends Actor
 
     public void reset()
     {
-        Greenfoot.setWorld(new DeathScreen());
-        setLocation(startX, startY);
-        if (playerSpeed < 0)
+        if (waiting) return;
+    
+        World world = getWorld();
+        int x = getX();
+        int y = getY();
+    
+        for (int i = 0; i < 12; i++)
         {
-            playerSpeed *= -1;
+            world.addObject(new DeathParticle(), x, y);
         }
-        score = 0;
-        ((MyWorld)getWorld()).spawnRandomMiddle();
+    
+        waitSeconds(1);
     }
 
     public void addScore()
@@ -190,5 +209,11 @@ public class Player extends Actor
             getWorld().addObject(new DustParticle(), getX(), getY() + getImage().getHeight() / 2);
             particleTimer = 0;
         }
+    }
+    
+    public void waitSeconds(int seconds)
+    {
+        waitTimer = seconds * 60;
+        waiting = true;
     }
 }

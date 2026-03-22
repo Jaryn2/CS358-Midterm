@@ -12,15 +12,7 @@ public class Block extends Actor
     {
         setImage("Ground.png");
         GreenfootImage image = getImage();
-        image.scale(50, 50); // width, height in pixels
+        image.scale(50, 50);
         setImage(image);
-    }
-    /**
-     * Act - do whatever the Block wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
     }
 }
