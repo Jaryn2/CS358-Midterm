@@ -6,6 +6,7 @@ public class StartScreen extends World
     private int selectedIndex = 0;
     private Textbox logoText = new Textbox("Jump Man", 100, false);
     
+    
     private String[] spriteArray = {
         "clockplayer.png",
         "eraserplayer.png",

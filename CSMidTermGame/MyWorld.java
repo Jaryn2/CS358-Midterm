@@ -13,9 +13,10 @@ public class MyWorld extends World
     int frameCounter = 0;
     int lastPrefab = -1;
     int score;
+    int counter;
     Player player = new Player(0.5, 4, 10);
     Textbox scoreUI = new Textbox("Score: ", 75, true);
-    
+    Textbox infoText = new Textbox("Press Space To Jump", 25, false);
     public MyWorld(String selectedCharacter)
     {
         super(1550, 1080, 1);
@@ -23,16 +24,24 @@ public class MyWorld extends World
         player.setCharacter(selectedCharacter);
         addObject(player, 100, 700);
         addObject(scoreUI, 750, 200);
+        addObject(infoText, 750, 600);
         loadPrefabs();
         PermanentLeft();
         PermanentRight();
         spawnRandomMiddle();
+        counter = 0;
     }
 
     public void act()
     {
         this.score = player.getScore();
         scoreUI.setScore(score);
+        counter++;
+        if(counter == 240)
+        {
+            removeObject(infoText);   
+        }
+        
     }
 
     public void loadPrefabs()

@@ -15,7 +15,7 @@ public class DeathParticle extends Actor
         dy = Greenfoot.getRandomNumber(9) - 4;
 
         image = new GreenfootImage(8, 8);
-        image.setColor(new Color(255, 255, 255, 255));
+        image.setColor(new Color(255, 71, 76));
         image.fillOval(0, 0, 8, 8);
         setImage(image);
     }
@@ -35,7 +35,7 @@ public class DeathParticle extends Actor
     private void moveParticle()
     {
         setLocation(getX() + dx, getY() + dy);
-        dy += 1;
+        dy += Greenfoot.getRandomNumber(9) - 4;
     }
 
     private void fadeOut()
@@ -43,7 +43,7 @@ public class DeathParticle extends Actor
         int alpha = Math.max(0, (life * 255) / 25);
 
         GreenfootImage faded = new GreenfootImage(8, 8);
-        faded.setColor(new Color(255, 255, 255, alpha));
+        faded.setColor(new Color(255, 71, 76, alpha));
         faded.fillOval(0, 0, 8, 8);
         setImage(faded);
     }

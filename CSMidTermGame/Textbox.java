@@ -10,7 +10,7 @@ public class Textbox extends Actor {
         this.size = size;
         this.text = text;
         
-        img = new GreenfootImage(text.length() * (size / 2) + size + 5, size * 2);
+        img = new GreenfootImage(text.length() * (size / 2) + size + 15, size * 2);
         img.setFont(new Font("Serif Sans", true, false, size));
         
         if (onOff)
