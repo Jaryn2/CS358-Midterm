@@ -19,6 +19,10 @@ public class Player extends Actor
     private int particleTimer = 0;
     private boolean waiting = false;
     private int waitTimer = 0;
+
+    private int coyoteTime = 0;
+    private int coyoteFrames = 6;
+
     public Player(double gravity, int speed, double jumpForce)
     {
         this.gravity = gravity;
@@ -33,18 +37,18 @@ public class Player extends Actor
         if (waiting)
         {
             waitTimer--;
-    
+
             if (waitTimer <= 0)
             {
                 waiting = false;
                 Greenfoot.setWorld(new DeathScreen());
             }
-    
+
             return;
         }
-    
+
         animateCharacter();
-    
+
         if (getWorld() instanceof MyWorld)
         {
             playerMovement();
@@ -63,6 +67,7 @@ public class Player extends Actor
         if (blockBelow != null && yVelocity >= 0)
         {
             onGround = true;
+            coyoteTime = coyoteFrames;
             yVelocity = 0;
 
             int blockTop = blockBelow.getY() - blockBelow.getImage().getHeight() / 2;
@@ -72,7 +77,17 @@ public class Player extends Actor
         }
         else
         {
+            if (onGround)
+            {
+                coyoteTime = coyoteFrames;
+            }
+
             onGround = false;
+
+            if (coyoteTime > 0)
+            {
+                coyoteTime--;
+            }
         }
     }
 
@@ -95,7 +110,7 @@ public class Player extends Actor
         if (isAtEdge())
         {
             playerSpeed *= -1;
-            
+
             addScore();
             ((MyWorld)getWorld()).spawnRandomMiddle();
             System.out.println("Switched Middle");
@@ -104,10 +119,11 @@ public class Player extends Actor
 
     public void jump()
     {
-        if (Greenfoot.isKeyDown("space") && onGround)
+        if (Greenfoot.isKeyDown("space") && (onGround || coyoteTime > 0))
         {
             yVelocity = -playerJumpForce;
             onGround = false;
+            coyoteTime = 0;
         }
     }
 
@@ -120,8 +136,7 @@ public class Player extends Actor
         Actor spikeCheck = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 0, Spike.class);
         Actor blockInFrontCheckMiddle = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, MiddleBlock.class);
         Actor blockInFrontCheckPerm = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, Block.class);
-        
-        
+
         if (spikeCheck != null || blockInFrontCheckMiddle != null || blockInFrontCheckPerm != null)
         {
             reset();
@@ -131,16 +146,16 @@ public class Player extends Actor
     public void reset()
     {
         if (waiting) return;
-    
+
         World world = getWorld();
         int x = getX();
         int y = getY();
-    
+
         for (int i = 0; i < 12; i++)
         {
             world.addObject(new DeathParticle(), x, y);
         }
-    
+
         waitSeconds(1);
     }
 
@@ -185,7 +200,7 @@ public class Player extends Actor
             updateAnimationFrame();
         }
     }
-    
+
     public void updateAnimationFrame()
     {
         GreenfootImage spriteSheet = new GreenfootImage(currentCharacter);
@@ -199,18 +214,18 @@ public class Player extends Actor
 
         setImage(singleFrame);
     }
-    
+
     public void spawnRunParticles()
     {
         particleTimer++;
-    
+
         if (particleTimer >= 4)
         {
             getWorld().addObject(new DustParticle(), getX(), getY() + getImage().getHeight() / 2);
             particleTimer = 0;
         }
     }
-    
+
     public void waitSeconds(int seconds)
     {
         waitTimer = seconds * 60;
