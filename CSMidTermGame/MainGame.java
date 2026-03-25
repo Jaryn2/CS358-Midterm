@@ -1,7 +1,7 @@
 import greenfoot.*;
 import java.util.ArrayList;
 
-public class MyWorld extends World
+public class MainGame extends World
 {
     ArrayList<int[][]> prefabs = new ArrayList<int[][]>();
 
@@ -17,7 +17,7 @@ public class MyWorld extends World
     Player player = new Player(0.5, 4, 10);
     Textbox scoreUI = new Textbox("Score: ", 75, true);
     Textbox infoText = new Textbox("Press Space To Jump", 25, false);
-    public MyWorld(String selectedCharacter)
+    public MainGame(String selectedCharacter)
     {
         super(1550, 1080, 1);
         background();

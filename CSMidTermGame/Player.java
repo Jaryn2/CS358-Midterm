@@ -49,7 +49,7 @@ public class Player extends Actor
 
         animateCharacter();
 
-        if (getWorld() instanceof MyWorld)
+        if (getWorld() instanceof MainGame)
         {
             playerMovement();
             jump();
@@ -112,7 +112,7 @@ public class Player extends Actor
             playerSpeed *= -1;
 
             addScore();
-            ((MyWorld)getWorld()).spawnRandomMiddle();
+            ((MainGame)getWorld()).spawnRandomMiddle();
             System.out.println("Switched Middle");
         }
     }
@@ -134,10 +134,13 @@ public class Player extends Actor
             reset();
         }
         Actor spikeCheck = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 0, Spike.class);
-        Actor blockInFrontCheckMiddle = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, MiddleBlock.class);
-        Actor blockInFrontCheckPerm = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, Block.class);
+        Actor blockInFrontCheckMiddleRight = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, MiddleBlock.class);
+        Actor blockInFrontCheckPermRight = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 15, Block.class);
+        Actor blockInFrontCheckMiddleLeft = getOneObjectAtOffset(getImage().getWidth() / 2 + 5, 15, MiddleBlock.class);
+        Actor blockInFrontCheckPermLeft = getOneObjectAtOffset(getImage().getWidth() / 2 + 5, 15, Block.class);
 
-        if (spikeCheck != null || blockInFrontCheckMiddle != null || blockInFrontCheckPerm != null)
+
+        if (spikeCheck != null || blockInFrontCheckMiddleLeft != null || blockInFrontCheckPermLeft != null || blockInFrontCheckMiddleRight != null || blockInFrontCheckPermRight != null)
         {
             reset();
         }

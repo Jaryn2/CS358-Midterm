@@ -37,10 +37,10 @@ public class WorldButton extends Actor
         {
             if (startScreen != null)
             {
-                Greenfoot.setWorld(new MyWorld(startScreen.getSelectedCharacter()));
+                Greenfoot.setWorld(new MainGame(startScreen.getSelectedCharacter()));
             }else if (deathScreen != null)
             {
-                 Greenfoot.setWorld(new MyWorld(deathScreen.getSelectedCharacter()));
+                 Greenfoot.setWorld(new MainGame(deathScreen.getSelectedCharacter()));
             }
         }
     }
