@@ -133,14 +133,17 @@ public class Player extends Actor
         {
             reset();
         }
-        Actor spikeCheck = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 0, Spike.class);
+        Actor spikeCheckRight = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 0, Spike.class);
+        Actor spikeCheckLeft = getOneObjectAtOffset(getImage().getWidth() / 2 * -1 + 5, 0, Spike.class);
         Actor blockInFrontCheckMiddleRight = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 10, MiddleBlock.class);
         Actor blockInFrontCheckPermRight = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 10, Block.class);
         Actor blockInFrontCheckMiddleLeft = getOneObjectAtOffset(getImage().getWidth() / 2 * -1 + 5, 10, MiddleBlock.class);
         Actor blockInFrontCheckPermLeft = getOneObjectAtOffset(getImage().getWidth() / 2 * -1 + 5, 10, Block.class);
 
 
-        if (spikeCheck != null || blockInFrontCheckMiddleLeft != null || blockInFrontCheckPermLeft != null || blockInFrontCheckMiddleRight != null || blockInFrontCheckPermRight != null)
+        if (spikeCheckRight != null || spikeCheckLeft != null 
+        || blockInFrontCheckMiddleLeft != null || blockInFrontCheckPermLeft != null 
+        || blockInFrontCheckMiddleRight != null || blockInFrontCheckPermRight != null)
         {
             reset();
         }
