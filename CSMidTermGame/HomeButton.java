@@ -1,5 +1,14 @@
 import greenfoot.*;
 
+/**
+ * This class generates the Home button which
+ * appears on the death screen. It returns the
+ * player to the main menu.
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class HomeButton extends Actor
 {
     private StartScreen startScreen;
