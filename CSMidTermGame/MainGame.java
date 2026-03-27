@@ -1,6 +1,15 @@
 import greenfoot.*;
 import java.util.ArrayList;
 
+/**
+ * This is the main class for the game.
+ * Prefabs are used to generate the levels.
+ * 
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class MainGame extends World
 {
     ArrayList<int[][]> prefabs = new ArrayList<int[][]>();
@@ -49,6 +58,10 @@ public class MainGame extends World
 
     public void loadPrefabs()
     {
+        // 0: empty block, 1: ground block, 2: spike
+        // The third row is where the starting blocks
+        // are. The player sprite is on the second row.
+        
         prefabs.add(new int[][]{
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
