@@ -62,7 +62,7 @@ public class MainGame extends World
     {
         // 0: empty block, 1: ground block, 2: spike
         // The third row is where the starting blocks
-        // are. The player sprite intializes on the second row.
+        // are. The player sprite initializes on the second row.
         
         prefabs.add(new int[][]{
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
