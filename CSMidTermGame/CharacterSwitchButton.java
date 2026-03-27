@@ -1,5 +1,13 @@
 import greenfoot.*;
 
+/**
+ * This class is for the buttons that switch the
+ * character sprite on the main menu.
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class CharacterSwitchButton extends Actor
 {
     private boolean side;
