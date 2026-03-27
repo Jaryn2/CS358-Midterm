@@ -23,7 +23,7 @@ public class StartScreen extends World
         addObject(previewPlayer, 775, 400);
 
         previewPlayer.setCharacter(spriteArray[selectedIndex]);
-        addObject(logoText, 770, 200);
+        addObject(logoText, 770 + 75, 200);
         addObject(new CharacterSwitchButton("<", 80, 40, false, this, null), 650, 400);
         addObject(new CharacterSwitchButton(">", 80, 40, true, this, null), 900, 400);
         addObject(highScoreUI, 800, 275);

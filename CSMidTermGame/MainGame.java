@@ -25,7 +25,7 @@ public class MainGame extends World
         background();
         player.setCharacter(selectedCharacter);
         addObject(player, 100, 700);
-        addObject(scoreUI, 750 + scoreUI.getText().length() / 2 + 5, 200);
+        addObject(scoreUI, 750 + 75, 200);
         addObject(highScoreUI, 750 + highScoreUI.getText().length() / 2 + 5, 275);
         addObject(infoText, 750 + infoText.getText().length() / 2 + 5, 600);
         loadPrefabs();

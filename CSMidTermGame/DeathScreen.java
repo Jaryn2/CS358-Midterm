@@ -22,12 +22,12 @@ public class DeathScreen extends World
         addObject(previewPlayer, 775, 400);
 
         previewPlayer.setCharacter(spriteArray[selectedIndex]);
-        addObject(logoText, 800, 200);
+        addObject(logoText, 850, 200);
         addObject(new CharacterSwitchButton("<", 80, 40, false, null, this), 650, 400);
         addObject(new CharacterSwitchButton(">", 80, 40, true, null, this), 900, 400);
         addObject(new HomeButton(150, 50, 25), 775, 610);
         addObject(new WorldButton("Retry", 150, 50, 25, null, this), 775, 550);
-        addObject(highScoreUI, 800, 275);
+        addObject(highScoreUI, 750, 275);
         highScoreUI.refreshHighScore();
         getBackground().setColor(new Color(255, 209, 220));
         getBackground().fill();
