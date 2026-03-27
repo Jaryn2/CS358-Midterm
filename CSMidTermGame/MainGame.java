@@ -33,8 +33,8 @@ public class MainGame extends World
         background();
         player.setCharacter(selectedCharacter);
         addObject(player, 100, 700);
-        addObject(scoreUIScore, 950, 200);
-        addObject(scoreUIText, 750, 200);
+        addObject(scoreUIScore, 975, 200);
+        addObject(scoreUIText, 775, 200);
         addObject(highScoreUI, 775, 275);
         addObject(infoText, 775, 600);
         loadPrefabs();
