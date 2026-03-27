@@ -1,8 +1,16 @@
 import greenfoot.*;
 
+/**
+ * This class adds particles which follow
+ * the character sprite as it moves.
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class DustParticle extends Actor
 {
-    private int life = 20;
+    private int life = 20;  // duration of the particle
     private int dx;
     private int dy;
     private GreenfootImage img;
