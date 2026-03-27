@@ -1,5 +1,13 @@
 import greenfoot.*;
 
+/**
+ * This class adds a random number of particles 
+ * which appear and fade out when the player dies.
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class DeathParticle extends Actor
 {
     private int dx;
@@ -9,7 +17,7 @@ public class DeathParticle extends Actor
     
     public DeathParticle()
     {
-        life = 25;
+        life = 25; // duration of the particle
 
         dx = Greenfoot.getRandomNumber(9) - 4;
         dy = Greenfoot.getRandomNumber(9) - 4;
