@@ -9,15 +9,25 @@ public class Textbox extends Actor {
     public Textbox(String text, int size, boolean onOff) {
         this.size = size;
         this.text = text;
+
+        int additionalLength = 0;
         
-        img = new GreenfootImage(text.length() * (size / 2) + size + 150, size * 2);
+        if (onOff) 
+        {
+            additionalLength = 150; 
+        }
+        
+        img = new GreenfootImage(text.length() * (size / 2) + size + additionalLength, size * 2);
         img.setFont(new Font("Serif Sans", true, false, size));
         
         if (onOff)
         {
             img.drawString(text + score, 5, size);
-        } else img.drawString(text, 5, size);
-        
+        }
+        else
+        {
+            img.drawString(text, 5, size);
+        }
         setImage(img);
     }
     
