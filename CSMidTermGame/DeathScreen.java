@@ -1,5 +1,14 @@
 import greenfoot.*;
 
+/**
+ * This world loads upon player death.
+ * It also allows the player to select the
+ * character sprite.
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class DeathScreen extends World
 {
     private Player previewPlayer;
