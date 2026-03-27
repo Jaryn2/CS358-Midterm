@@ -1,8 +1,8 @@
 import greenfoot.*;
 
 /**
- * This class adds a random number of particles 
- * which appear and fade out when the player dies.
+ * This class adds particles which appear and
+ * fade out when the player dies.
  * 
  * @author Team Kappa
  * @version 2026-03-27
