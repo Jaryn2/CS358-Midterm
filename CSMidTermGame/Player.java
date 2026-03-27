@@ -1,5 +1,14 @@
 import greenfoot.*;
 
+/**
+ * This is the class for the player character.
+ * It updates the position, adds particles, 
+ * and checks for collision.
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class Player extends Actor
 {
     double gravity;
@@ -113,7 +122,7 @@ public class Player extends Actor
 
             addScore();
             ((MainGame)getWorld()).spawnRandomMiddle();
-            System.out.println("Switched Middle");
+//            System.out.println("Switched Middle");
         }
     }
 
