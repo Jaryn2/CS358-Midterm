@@ -1,5 +1,13 @@
 import greenfoot.*;
 
+/**
+ * This class generates buttons for use on
+ * the start screen and death screen.
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class WorldButton extends Actor
 {
     private StartScreen startScreen;
