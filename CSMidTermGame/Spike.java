@@ -1,11 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Spike here.
+ * This class adds the spikes which are
+ * obstacles in some levels for the player
+ * to jump over.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Team Kappa
+ * @version 2026-03-27
  */
+
 public class Spike extends Actor
 {
 }
