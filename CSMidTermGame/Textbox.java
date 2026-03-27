@@ -25,7 +25,7 @@ public class Textbox extends Actor {
         
         if (onOff) 
         {
-            additionalLength = 150; 
+            additionalLength = 150; // this accommodates higher scores
         }
         
         img = new GreenfootImage(text.length() * (size / 2) + size + additionalLength, size * 2);
