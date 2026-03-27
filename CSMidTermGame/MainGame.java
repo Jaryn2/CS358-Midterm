@@ -25,8 +25,8 @@ public class MainGame extends World
     int counter;
     
     Player player = new Player(0.5, 4, 10);
-    Textbox scoreUI = new Textbox("Score: ", 75, true);
-    Textbox infoText = new Textbox("Press Space To Jump", 25, false);
+    Textbox scoreUIText = new Textbox("Score: ", 75, false);
+    Textbox scoreUIScore = new Textbox("", 75, true);
     HighScore highScoreUI = new HighScore("High Score: ", 40, true);
     public MainGame(String selectedCharacter)
     {
@@ -34,7 +34,8 @@ public class MainGame extends World
         background();
         player.setCharacter(selectedCharacter);
         addObject(player, 100, 700);
-        addObject(scoreUI, 750 + 75, 200);
+        addObject(scoreUIScore, 950, 200);
+        addObject(scoreUIText, 750, 200);
         addObject(highScoreUI, 750 + highScoreUI.getText().length() / 2 + 5, 275);
         addObject(infoText, 750 + infoText.getText().length() / 2 + 5, 600);
         loadPrefabs();
@@ -47,7 +48,7 @@ public class MainGame extends World
     public void act()
     {
         this.score = player.getScore();
-        scoreUI.setScore(score);
+        scoreUIScore.setScore(score);
         counter++;
         if(counter == 240)
         {
