@@ -1,11 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MiddleBlock here.
+ * These are the blocks which make up the levels.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Team Kappa
+ * @version 2026-03-27
  */
+
 public class MiddleBlock extends Block
 {
 }
