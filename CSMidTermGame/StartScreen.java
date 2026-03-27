@@ -10,28 +10,32 @@ import greenfoot.*;
 
 public class StartScreen extends World
 {
+    
+
     private Player previewPlayer;
     private int selectedIndex = 0;
     private Textbox logoText = new Textbox("Jump Man", 100, false);
     HighScore highScoreUI = new HighScore("High Score: ", 60, true);
 
-    
+    //Array for the character selection
+
     private String[] spriteArray = {
         "clockplayer.png",
         "eraserplayer.png",
         "hatplayer.png",
         "sunglassesplayer.png"
     };
-
+    
     public StartScreen()
     {
+        //Initialize objects in the deathscreen on creation of class
         super(1550, 1080, 1);
 
         previewPlayer = new Player(0, 0, 0);
         addObject(previewPlayer, 775, 400);
 
         previewPlayer.setCharacter(spriteArray[selectedIndex]);
-        addObject(logoText, 770 + 75, 200);
+        addObject(logoText, 775, 200);
         addObject(new CharacterSwitchButton("<", 80, 40, false, this, null), 650, 400);
         addObject(new CharacterSwitchButton(">", 80, 40, true, this, null), 900, 400);
         addObject(highScoreUI, 800, 275);
@@ -40,7 +44,13 @@ public class StartScreen extends World
         getBackground().setColor(new Color(255, 209, 220));
         getBackground().fill();
     }
-
+    /*Takes input from the character switch buttons. If the right button
+     * is clicked right = true and if the left button is clicked 
+     * right = false
+     * If statement cycles through the spriteArray based on the state of
+     * variable right
+     * Finally at the end sets the character for the next world.
+     */
     public void switchCharacter(boolean right)
     {
         if (right)
@@ -62,6 +72,7 @@ public class StartScreen extends World
 
         previewPlayer.setCharacter(spriteArray[selectedIndex]);
     }
+    //Returns the selected character.
 
     public String getSelectedCharacter()
     {

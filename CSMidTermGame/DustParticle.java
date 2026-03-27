@@ -10,11 +10,12 @@ import greenfoot.*;
 
 public class DustParticle extends Actor
 {
-    private int life = 20;  // duration of the particle
+    private int life = 20;
     private int dx;
     private int dy;
     private GreenfootImage img;
-
+    
+    //Initializes the dust particle and sets a random start point.
     public DustParticle()
     {
         img = new GreenfootImage(12, 12);
@@ -28,6 +29,8 @@ public class DustParticle extends Actor
 
     public void act()
     {
+        //sets a random location and takes away from the life
+        //fades the particle out and removes itself when life  is < 0
         setLocation(getX() + dx, getY() + dy);
 
         life--;

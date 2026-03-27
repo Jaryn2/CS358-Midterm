@@ -10,6 +10,7 @@ public class Block extends Actor
 {   
     public Block()
     {
+        //Sets the sprite of each block and the size they need to be
         setImage("Ground.png");
         GreenfootImage image = getImage();
         image.scale(50, 50);

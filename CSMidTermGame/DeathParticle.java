@@ -17,7 +17,9 @@ public class DeathParticle extends Actor
     
     public DeathParticle()
     {
-        life = 25; // duration of the particle
+        //Sets the the duration of the particles and creates a random x and y
+        //position sets the color and sets the image.
+        life = 25;
 
         dx = Greenfoot.getRandomNumber(9) - 4;
         dy = Greenfoot.getRandomNumber(9) - 4;
@@ -30,6 +32,8 @@ public class DeathParticle extends Actor
 
     public void act()
     {
+        //Moves the particles, fades it out, and runs removes itself after
+        //life is < 0.
         moveParticle();
         fadeOut();
 
@@ -39,7 +43,7 @@ public class DeathParticle extends Actor
             getWorld().removeObject(this);
         }
     }
-
+    //Moves the particle in a random direction
     private void moveParticle()
     {
         setLocation(getX() + dx, getY() + dy);
@@ -48,6 +52,8 @@ public class DeathParticle extends Actor
 
     private void fadeOut()
     {
+        //Increases the alpha (transparency) of the object which slowly
+        //fades the object off the screen
         int alpha = Math.max(0, (life * 255) / 25);
 
         GreenfootImage faded = new GreenfootImage(8, 8);

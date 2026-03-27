@@ -1,4 +1,4 @@
 #BlueJ class context
 comment0.target=MiddleBlock
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MiddleBlock\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ These\ are\ the\ blocks\ which\ make\ up\ the\ levels.\r\n\ Extends\ Block\ so\ the\ collision\ physics\ don't\ need\ more\ variables.\r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 numComments=1

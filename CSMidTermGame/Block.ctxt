@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Block
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Block\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ class\ adds\ the\ sprite\ for\ the\ ground\ blocks.\r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=
 comment1.target=Block()
 numComments=2

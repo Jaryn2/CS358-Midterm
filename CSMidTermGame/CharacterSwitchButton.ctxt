@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=CharacterSwitchButton
+comment0.text=\r\n\ This\ class\ is\ for\ the\ buttons\ that\ switch\ the\r\n\ character\ sprite\ on\ the\ main\ menu\ and\ death\ screen.\r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=text\ width\ height\ side\ startScreen\ deathScreen
 comment1.target=CharacterSwitchButton(java.lang.String,\ int,\ int,\ boolean,\ StartScreen,\ DeathScreen)
 comment2.params=

@@ -3,7 +3,7 @@ import greenfoot.*;
 /**
  * This is the class for the player character.
  * It updates the position, adds particles, 
- * and checks for collision.
+ * checks for collision, and handles score updating.
  * 
  * @author Team Kappa
  * @version 2026-03-27
@@ -11,6 +11,7 @@ import greenfoot.*;
 
 public class Player extends Actor
 {
+    //Initialize variables used in the class.
     double gravity;
     int playerSpeed;
     double playerJumpForce;
@@ -31,7 +32,8 @@ public class Player extends Actor
 
     private int coyoteTime = 0;
     private int coyoteFrames = 6;
-
+    
+    //Initializes the player with its gravity, speed, and jumpForce.
     public Player(double gravity, int speed, double jumpForce)
     {
         this.gravity = gravity;
@@ -40,9 +42,11 @@ public class Player extends Actor
         this.yVelocity = 0;
         this.onGround = false;
     }
-
+    
     public void act()
     {
+        //Timer used so the death particles finish processing before switching
+        //Worlds
         if (waiting)
         {
             waitTimer--;
@@ -55,9 +59,10 @@ public class Player extends Actor
 
             return;
         }
-
+        //Animates the character.
         animateCharacter();
-
+        
+        //Checks to see if getWorld is of type MainGame.
         if (getWorld() instanceof MainGame)
         {
             playerMovement();
@@ -68,13 +73,20 @@ public class Player extends Actor
             spawnRunParticles();
         }
     }
-
+    
+    //Checks for the collisions and adjusts players position if needed.
     public void checkForCollision()
     {
+        //Checks to see if there is a Block below you.
         Actor blockBelow = getOneObjectAtOffset(0, getImage().getHeight() / 2, Block.class);
-
+        
+        //Checks if there is a block below you and if you're falling.
+        //Coyote frames and coyote time are used to cut the player some slack
+        //For example if they run off the block they have a certain amount of time to jump
+        //when they coyote time is done they can no longer jump.
         if (blockBelow != null && yVelocity >= 0)
         {
+            //sets on ground to true so you can jump
             onGround = true;
             coyoteTime = coyoteFrames;
             yVelocity = 0;
@@ -99,7 +111,8 @@ public class Player extends Actor
             }
         }
     }
-
+    
+    //Handles the players physics.
     public void playerPhysics()
     {
         yVelocity += gravity;
@@ -111,25 +124,32 @@ public class Player extends Actor
 
         setLocation(getX(), (int)(getY() + yVelocity));
     }
-
+    
+    //Handles the players movement
     public void playerMovement()
     {
         move(playerSpeed);
-
+        
+        //When the player reaches the edge of the screen it flips their
+        //direction and adds to the score.
         if (isAtEdge())
         {
             playerSpeed *= -1;
 
             addScore();
             ((MainGame)getWorld()).spawnRandomMiddle();
-//            System.out.println("Switched Middle");
+
         }
     }
-
+    
+    //Handles jumping
     public void jump()
     {
+        //Checks for the spacebar being down, player being onGround and the coyote timer is
+        //Greater than 0
         if (Greenfoot.isKeyDown("space") && (onGround || coyoteTime > 0))
         {
+            //Applies jumping physics
             yVelocity = -playerJumpForce;
             onGround = false;
             coyoteTime = 0;
@@ -138,26 +158,30 @@ public class Player extends Actor
 
     public void deathCheck()
     {
+        //If a player gets below a certain height they die
         if (getY() > 1050)
         {
             reset();
         }
+        
+        //Variables used to check the hitboxes to the left and right of them.
         Actor spikeCheckRight = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 0, Spike.class);
         Actor spikeCheckLeft = getOneObjectAtOffset(getImage().getWidth() / 2 * -1 + 5, 0, Spike.class);
-        Actor blockInFrontCheckMiddleRight = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 10, MiddleBlock.class);
         Actor blockInFrontCheckPermRight = getOneObjectAtOffset(getImage().getWidth() / 2 - 5, 10, Block.class);
-        Actor blockInFrontCheckMiddleLeft = getOneObjectAtOffset(getImage().getWidth() / 2 * -1 + 5, 10, MiddleBlock.class);
         Actor blockInFrontCheckPermLeft = getOneObjectAtOffset(getImage().getWidth() / 2 * -1 + 5, 10, Block.class);
 
 
-        if (spikeCheckRight != null || spikeCheckLeft != null 
-        || blockInFrontCheckMiddleLeft != null || blockInFrontCheckPermLeft != null 
-        || blockInFrontCheckMiddleRight != null || blockInFrontCheckPermRight != null)
+        if (spikeCheckRight != null 
+        || spikeCheckLeft != null 
+        || blockInFrontCheckPermLeft != null 
+        || blockInFrontCheckPermRight != null)
         {
             reset();
         }
     }
-
+    
+    //Resets score and sets highScore
+    //Initializes death particles
     public void reset()
     {   
         if (score > HighScore.getHighScore())
@@ -178,18 +202,17 @@ public class Player extends Actor
 
         waitSeconds(1);
     }
-
+    //Adds score
     public void addScore()
     {
         score++;
     }
-
+    //Returns score
     public int getScore()
     {
-        System.out.println(score);
         return score;
     }
-
+    //Sets the characters sprite
     public void setCharacter(String imageName)
     {
         currentCharacter = imageName;
@@ -197,7 +220,7 @@ public class Player extends Actor
         animationCounter = 0;
         updateAnimationFrame();
     }
-
+    //Animates the character by switching between two different sprites
     public void animateCharacter()
     {
         if (currentCharacter == null)
@@ -220,7 +243,8 @@ public class Player extends Actor
             updateAnimationFrame();
         }
     }
-
+    //Splits the images we have into half and sets the top or bottom to the sprite
+    //depending on what frame the game is on
     public void updateAnimationFrame()
     {
         GreenfootImage spriteSheet = new GreenfootImage(currentCharacter);
@@ -234,7 +258,7 @@ public class Player extends Actor
 
         setImage(singleFrame);
     }
-
+    //Spawns the running effect particles
     public void spawnRunParticles()
     {
         particleTimer++;
@@ -245,7 +269,7 @@ public class Player extends Actor
             particleTimer = 0;
         }
     }
-
+    //Used to initial the wait timer
     public void waitSeconds(int seconds)
     {
         waitTimer = seconds * 60;

@@ -2,7 +2,7 @@ import greenfoot.*;
 
 /**
  * This class is for the buttons that switch the
- * character sprite on the main menu.
+ * character sprite on the main menu and death screen.
  * 
  * @author Team Kappa
  * @version 2026-03-27
@@ -16,6 +16,9 @@ public class CharacterSwitchButton extends Actor
 
     public CharacterSwitchButton(String text, int width, int height, boolean side, StartScreen startScreen, DeathScreen deathScreen)
     {
+        //Sets local variables with inputed ones.
+        //Makes the buttons have rounded edges
+        //Sets the colors and sizes
         this.side = side;
         this.startScreen = startScreen;
         this.deathScreen = deathScreen;
@@ -43,8 +46,11 @@ public class CharacterSwitchButton extends Actor
 
     public void act()
     {
+        //Checks for a mouse click
         if (Greenfoot.mouseClicked(this))
         {
+            //checks to see if its coming from the startScreen or deathScreen 
+            //and switches the character
             if (startScreen != null) startScreen.switchCharacter(side);
             if (deathScreen != null) deathScreen.switchCharacter(side);
 

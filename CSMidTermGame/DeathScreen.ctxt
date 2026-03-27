@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=DeathScreen
+comment0.text=\r\n\ This\ world\ loads\ upon\ player\ death.\r\n\ It\ also\ allows\ the\ player\ to\ select\ the\r\n\ character\ sprite.\r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=
 comment1.target=DeathScreen()
 comment2.params=right

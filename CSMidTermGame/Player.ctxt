@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Player
+comment0.text=\r\n\ This\ is\ the\ class\ for\ the\ player\ character.\r\n\ It\ updates\ the\ position,\ adds\ particles,\ \r\n\ checks\ for\ collision,\ and\ handles\ score\ updating.\r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=gravity\ speed\ jumpForce
 comment1.target=Player(double,\ int,\ double)
 comment10.params=

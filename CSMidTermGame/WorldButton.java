@@ -12,7 +12,8 @@ public class WorldButton extends Actor
 {
     private StartScreen startScreen;
     private DeathScreen deathScreen;
-
+    
+    //Initalizes the buttons text, width, height, fontSize, startScreen, and deathScreen.
     public WorldButton(String text, int width, int height, int fontSize, StartScreen startScreen, DeathScreen deathScreen)
     {
         this.startScreen = startScreen;
@@ -41,6 +42,8 @@ public class WorldButton extends Actor
 
     public void act()
     {
+        //Checks for a mouse click and determines which variable has been declared
+        //and sets the new world based off of that.
         if (Greenfoot.mouseClicked(this))
         {
             if (startScreen != null)

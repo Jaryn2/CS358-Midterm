@@ -1,4 +1,4 @@
-import greenfoot.*;  // import greenfoot classes
+import greenfoot.*;
 
 /**
  * This class is for creating the high score
@@ -16,6 +16,7 @@ public class HighScore extends Actor {
     GreenfootImage img;
     
     public HighScore(String text, int size, boolean onOff) {
+        //Initializes the highscore textbox ui
         this.size = size;
         this.text = text;
         
@@ -30,6 +31,7 @@ public class HighScore extends Actor {
         setImage(img);
     }
     
+    //Refreshes the highscore ui
     public void refreshHighScore()
     {
         img.clear();
@@ -38,11 +40,12 @@ public class HighScore extends Actor {
         setImage(img);
     }
     
+    //Returns highscore
     public static int getHighScore()
     {
         return highScore;   
     }
-    
+    //Returns text
     public String getText()
     {
         return text;

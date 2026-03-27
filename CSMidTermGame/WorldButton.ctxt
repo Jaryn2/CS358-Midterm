@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=WorldButton
+comment0.text=\r\n\ This\ class\ generates\ buttons\ for\ use\ on\r\n\ the\ start\ screen\ and\ death\ screen.\r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=text\ width\ height\ fontSize\ startScreen\ deathScreen
 comment1.target=WorldButton(java.lang.String,\ int,\ int,\ int,\ StartScreen,\ DeathScreen)
 comment2.params=

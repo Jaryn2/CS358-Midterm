@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=DeathParticle
+comment0.text=\r\n\ This\ class\ adds\ particles\ which\ appear\ and\r\n\ fade\ out\ when\ the\ player\ dies.\r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=
 comment1.target=DeathParticle()
 comment2.params=

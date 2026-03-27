@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=DustParticle
+comment0.text=\r\n\ This\ class\ adds\ particles\ which\ follow\r\n\ the\ character\ sprite\ as\ it\ moves.\r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=
 comment1.target=DustParticle()
 comment2.params=

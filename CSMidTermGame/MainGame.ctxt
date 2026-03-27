@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=MainGame
+comment0.text=\r\n\ This\ is\ the\ main\ class\ for\ the\ game.\r\n\ Prefabs\ are\ used\ to\ generate\ the\ levels.\r\n\ \r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=selectedCharacter
 comment1.target=MainGame(java.lang.String)
 comment2.params=

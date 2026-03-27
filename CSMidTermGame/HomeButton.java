@@ -16,7 +16,8 @@ public class HomeButton extends Actor
 
     public HomeButton(int width, int height, int fontSize)
     {
-
+        //Sets the home buttons width, height, fontsize, and makes the buttons
+        //image
         int arc = 20;
         GreenfootImage img = new GreenfootImage(width, height);
 
@@ -40,6 +41,7 @@ public class HomeButton extends Actor
 
     public void act()
     {
+        //Takes you back to the start screen
         if (Greenfoot.mouseClicked(this))
         {
                  Greenfoot.setWorld(new StartScreen());

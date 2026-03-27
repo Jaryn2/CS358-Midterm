@@ -1,9 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * This class adds the spikes which are
- * obstacles in some levels for the player
- * to jump over.
+ * Holds the sprite and the class is used 
+ * for collsion detection.
+ * 
  * 
  * @author Team Kappa
  * @version 2026-03-27

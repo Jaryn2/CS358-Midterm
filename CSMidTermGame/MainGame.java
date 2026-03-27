@@ -12,32 +12,31 @@ import java.util.ArrayList;
 
 public class MainGame extends World
 {
+    //Initialize variables needed for the class
     ArrayList<int[][]> prefabs = new ArrayList<int[][]>();
-
-    int r = 255;
-    int g = 0;
-    int b = 0;
-
-    int stage = 0;
+    
     int frameCounter = 0;
     int lastPrefab = -1;
     int score;
     int counter;
     
     Player player = new Player(0.5, 4, 10);
+    Textbox infoText = new Textbox("Press Space to Jump", 30, false);
     Textbox scoreUIText = new Textbox("Score: ", 75, false);
     Textbox scoreUIScore = new Textbox("", 75, true);
     HighScore highScoreUI = new HighScore("High Score: ", 40, true);
+    
     public MainGame(String selectedCharacter)
     {
+        //Initializes objects and variables on world start
         super(1550, 1080, 1);
         background();
         player.setCharacter(selectedCharacter);
         addObject(player, 100, 700);
         addObject(scoreUIScore, 950, 200);
         addObject(scoreUIText, 750, 200);
-        addObject(highScoreUI, 750 + highScoreUI.getText().length() / 2 + 5, 275);
-        addObject(infoText, 750 + infoText.getText().length() / 2 + 5, 600);
+        addObject(highScoreUI, 775, 275);
+        addObject(infoText, 775, 600);
         loadPrefabs();
         PermanentLeft();
         PermanentRight();
@@ -47,6 +46,8 @@ public class MainGame extends World
 
     public void act()
     {
+        //Gets the score thats stored in player and updates the ui. Also holds
+        //the counter for the info text box
         this.score = player.getScore();
         scoreUIScore.setScore(score);
         counter++;
@@ -61,7 +62,7 @@ public class MainGame extends World
     {
         // 0: empty block, 1: ground block, 2: spike
         // The third row is where the starting blocks
-        // are. The player sprite is on the second row.
+        // are. The player sprite intializes on the second row.
         
         prefabs.add(new int[][]{
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -264,6 +265,8 @@ public class MainGame extends World
             });
     }
     
+    
+    //PermanentLeft and Permanent right initialize the blocks that don't change.
     public void PermanentLeft()
     {
         for (int i = 0; i < 8; i++)
@@ -279,11 +282,15 @@ public class MainGame extends World
             addObject(new Block(), 1525 - (i * 50), 750);
         }
     }
-
+    
+    
+    //spawns the prefab when called and given the layout and the position it
+    //should be spawned at.
     public void spawnPrefab(int[][] layout, int startX, int startY)
     {
         int tileSize = 50;
-
+        //For loop runs through each prefab layout and places a block, spike
+        //or nothing based on the #'s in the array.
         for (int row = 0; row < layout.length; row++)
         {
             for (int col = 0; col < layout[row].length; col++)
@@ -302,31 +309,34 @@ public class MainGame extends World
             }
         }
     }
-
+    //Removes the prefabs that way new ones can spawn without overlapping
     public void clearMiddle()
     {
         removeObjects(getObjects(MiddleBlock.class));
         removeObjects(getObjects(Spike.class));
         highScoreUI.refreshHighScore();
     }
-
+    
+    //Spawns the layout prefabs randomly
     public void spawnRandomMiddle()
     {
+        //Clears middle so newly spawned prefabs dont overlap
         clearMiddle();
 
         int randomIndex = Greenfoot.getRandomNumber(prefabs.size());
-
+        //While loop checks to make sure that the same prefab doesn't spawn
+        //twice in a row.
         while (randomIndex == lastPrefab && prefabs.size() > 1)
         {
             randomIndex = Greenfoot.getRandomNumber(prefabs.size());
         }
-
+        //Sets last prefab and then calls spawnPrefab with newly generated one.
         lastPrefab = randomIndex;
-
+        
         int[][] chosenPrefab = prefabs.get(randomIndex);
         spawnPrefab(chosenPrefab, 425, 650);
     }
-    
+    //Sets worlds background
     public void background()
     {
         setBackground("background1.png");

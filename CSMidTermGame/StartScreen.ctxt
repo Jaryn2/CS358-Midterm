@@ -1,9 +1,11 @@
 #BlueJ class context
 comment0.target=StartScreen
+comment0.text=\r\n\ The\ start\ screen\ allows\ the\ player\ to\r\n\ switch\ character\ sprites\ and\ start\ the\ game.\r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=
 comment1.target=StartScreen()
 comment2.params=right
 comment2.target=void\ switchCharacter(boolean)
+comment2.text=Takes\ input\ from\ the\ character\ switch\ buttons.\ If\ the\ right\ button\r\n\ is\ clicked\ right\ \=\ true\ and\ if\ the\ left\ button\ is\ clicked\ \r\n\ right\ \=\ false\r\n\ If\ statement\ cycles\ through\ the\ spriteArray\ based\ on\ the\ state\ of\r\n\ variable\ right\r\n\ Finally\ at\ the\ end\ sets\ the\ character\ for\ the\ next\ world.\r\n
 comment3.params=
 comment3.target=java.lang.String\ getSelectedCharacter()
 numComments=4

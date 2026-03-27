@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=HomeButton
+comment0.text=\r\n\ This\ class\ generates\ the\ Home\ button\ which\r\n\ appears\ on\ the\ death\ screen.\ It\ returns\ the\r\n\ player\ to\ the\ main\ menu.\r\n\ \r\n\ @author\ Team\ Kappa\r\n\ @version\ 2026-03-27\r\n
 comment1.params=width\ height\ fontSize
 comment1.target=HomeButton(int,\ int,\ int)
 comment2.params=
