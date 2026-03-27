@@ -1,5 +1,13 @@
 import greenfoot.*;
 
+/**
+ * The start screen allows the player to
+ * switch character sprites and start the game.
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class StartScreen extends World
 {
     private Player previewPlayer;
