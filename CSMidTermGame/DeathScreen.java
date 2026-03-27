@@ -5,6 +5,7 @@ public class DeathScreen extends World
     private Player previewPlayer;
     private int selectedIndex = 0;
     private Textbox logoText = new Textbox("You Died", 100, false);
+    HighScore highScoreUI = new HighScore("High Score: ", 60, true);
     
     private String[] spriteArray = {
         "clockplayer.png",
@@ -26,6 +27,8 @@ public class DeathScreen extends World
         addObject(new CharacterSwitchButton(">", 80, 40, true, null, this), 900, 400);
         addObject(new HomeButton(150, 50, 25), 775, 610);
         addObject(new WorldButton("Retry", 150, 50, 25, null, this), 775, 550);
+        addObject(highScoreUI, 800, 275);
+        highScoreUI.refreshHighScore();
         getBackground().setColor(new Color(255, 209, 220));
         getBackground().fill();
     }

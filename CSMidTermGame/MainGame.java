@@ -14,17 +14,20 @@ public class MainGame extends World
     int lastPrefab = -1;
     int score;
     int counter;
+    
     Player player = new Player(0.5, 4, 10);
     Textbox scoreUI = new Textbox("Score: ", 75, true);
     Textbox infoText = new Textbox("Press Space To Jump", 25, false);
+    HighScore highScoreUI = new HighScore("High Score: ", 40, true);
     public MainGame(String selectedCharacter)
     {
         super(1550, 1080, 1);
         background();
         player.setCharacter(selectedCharacter);
         addObject(player, 100, 700);
-        addObject(scoreUI, 750, 200);
-        addObject(infoText, 750, 600);
+        addObject(scoreUI, 750 + scoreUI.getText().length() / 2 + 5, 200);
+        addObject(highScoreUI, 750 + highScoreUI.getText().length() / 2 + 5, 275);
+        addObject(infoText, 750 + infoText.getText().length() / 2 + 5, 600);
         loadPrefabs();
         PermanentLeft();
         PermanentRight();
@@ -290,6 +293,7 @@ public class MainGame extends World
     {
         removeObjects(getObjects(MiddleBlock.class));
         removeObjects(getObjects(Spike.class));
+        highScoreUI.refreshHighScore();
     }
 
     public void spawnRandomMiddle()
@@ -308,6 +312,7 @@ public class MainGame extends World
         int[][] chosenPrefab = prefabs.get(randomIndex);
         spawnPrefab(chosenPrefab, 425, 650);
     }
+    
     public void background()
     {
         setBackground("background1.png");

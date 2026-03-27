@@ -5,7 +5,8 @@ public class StartScreen extends World
     private Player previewPlayer;
     private int selectedIndex = 0;
     private Textbox logoText = new Textbox("Jump Man", 100, false);
-    
+    HighScore highScoreUI = new HighScore("High Score: ", 60, true);
+
     
     private String[] spriteArray = {
         "clockplayer.png",
@@ -25,7 +26,8 @@ public class StartScreen extends World
         addObject(logoText, 770, 200);
         addObject(new CharacterSwitchButton("<", 80, 40, false, this, null), 650, 400);
         addObject(new CharacterSwitchButton(">", 80, 40, true, this, null), 900, 400);
-
+        addObject(highScoreUI, 800, 275);
+        highScoreUI.refreshHighScore();
         addObject(new WorldButton("Play", 150, 50, 25, this, null), 775, 550);
         getBackground().setColor(new Color(255, 209, 220));
         getBackground().fill();

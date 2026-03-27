@@ -4,4 +4,6 @@ comment1.params=text\ size\ onOff
 comment1.target=Textbox(java.lang.String,\ int,\ boolean)
 comment2.params=score
 comment2.target=void\ setScore(int)
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ getText()
+numComments=4

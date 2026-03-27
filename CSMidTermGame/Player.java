@@ -150,9 +150,14 @@ public class Player extends Actor
     }
 
     public void reset()
-    {
+    {   
+        if (score > HighScore.getHighScore())
+        {
+            HighScore.highScore = score;
+        }
+        
         if (waiting) return;
-
+        
         World world = getWorld();
         int x = getX();
         int y = getY();
