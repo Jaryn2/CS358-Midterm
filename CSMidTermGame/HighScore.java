@@ -1,5 +1,13 @@
 import greenfoot.*;  // import greenfoot classes
 
+/**
+ * This class is for creating the high score
+ * object displayed on the main menu.
+ * 
+ * @author Team Kappa
+ * @version 2026-03-27
+ */
+
 public class HighScore extends Actor {
     static int highScore;
     int size;
