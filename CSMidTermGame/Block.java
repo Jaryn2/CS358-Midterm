@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Block here.
+ * This class adds the sprite for the ground blocks.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Team Kappa
+ * @version 2026-03-27
  */
 public class Block extends Actor
 {   
